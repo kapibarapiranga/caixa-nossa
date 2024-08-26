@@ -10,7 +10,7 @@ Created on Mon Aug 26 10:44:41 2024
 LIMITE_SAQUE = 500
 LIMITE_NUM_SAQUES = 3
 BOAS_VINDAS = "Seja Bem-Vindo ao Terminal do Banco Nosso S.A."
-ERRO = "operação Inválida\n\n"
+ERRO = " operação inválida "
                          
 saldo = 0
 extrato = ""
@@ -46,7 +46,7 @@ def menu():
             break
         
         else:
-            print(ERRO.title())
+            print(ERRO.upper().center(47, "="))
         
          
         
