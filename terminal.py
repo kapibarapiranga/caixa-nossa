@@ -3,9 +3,57 @@
 """
 Created on Mon Aug 26 10:44:41 2024
 
-@author: felipe
+@author: Kapibara Pirãga
 """
 
+# VARIÁVEIS E CONSTANTES
+LIMITE_SAQUE = 500
+LIMITE_NUM_SAQUES = 3
+BOAS_VINDAS = "Seja Bem-Vindo ao Terminal do Banco Nosso S.A."
+ERRO = "operação Inválida\n\n"
+                         
+saldo = 0
+extrato = ""
+num_saques = 0
+
+menu_msg = """
+Selecione a Opção Desejada:
+
+[d] Depositar
+[s] Sacar
+[e] Extrato
+[q] Sair
+
+=> """
+
+# FUNÇÔES
+def menu():
+    while True:
+        print(BOAS_VINDAS)
+        opcao = input(menu_msg)
+        
+        if opcao == "d":
+            print("Depósito")
+        
+        elif opcao == "s":
+            print("Sacar")
+        
+        elif opcao == "e":
+            print("Extrato")
+        
+        elif opcao == "q":
+            print("Sair")
+            break
+        
+        else:
+            print(ERRO.title())
+        
+         
+        
+        
+        
+
+# LOGOTIPO DO BANCO
 logo = '''
 ----------------------------------------++++++-------+++++------------------------------------------
 ------------------------------------+++---------------------+++-------------------------------------
@@ -42,4 +90,6 @@ logo = '''
 '''
 
 print(logo)
-print("Seja Bem-Vindo ao Terminal do Banco Nosso S.A."
+
+menu()
+
