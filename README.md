@@ -2,7 +2,7 @@
 Exercício de criação de um sistema bancário simples.
 
 Projeto realizado para entrega no curso **Criando um Sistema Bancário com Python** da DIO, disponível em:
-[https://web.dio.me/lab/desafio-de-projeto-criando-um-sistema-bancario/](Criando um Sistema Bancário com Python).
+[Criando um Sistema Bancário com Python](https://web.dio.me/lab/desafio-de-projeto-criando-um-sistema-bancario/).
 
 Abaixo uma pequena referência à Caixa Econômica do Estado de São Paulo que será singelamente homenageada no presente projeto.
 
