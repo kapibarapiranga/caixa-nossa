@@ -14,7 +14,7 @@ BOAS_VINDAS = "\n\n\nSeja Bem-Vindo ao Terminal do Banco Nosso S.A."
 ERRO = " operação inválida "
                          
 saldo = 0
-extrato = []
+extrato = [[date(1970, 1, 1), 0.0, 0.0]]
 num_saques = 0
 
 menu_msg = """
@@ -40,7 +40,8 @@ def menu():
         
         elif opcao == "s":
             print("Sacar")
-        
+            saque()
+    
         elif opcao == "e":
             print("Extrato")
         
@@ -53,11 +54,38 @@ def menu():
 
 
 def deposito(valor):
-    global saldo 
+    global saldo
     saldo += valor
     
     data = date.today()
     extrato.append([data, valor, saldo])
+    print(extrato)
+
+def saque():
+    global saldo
+    global num_saques
+    data = date.today()
+    
+    data_ultimo_saque = extrato[-1][0]
+    if data_ultimo_saque != data:
+        num_saques = 0
+    
+    if num_saques < 3:
+        saque_valor = float(input("Digite o valor que deseja sacar: "))
+        
+        if saque_valor <= saldo:
+            saldo -= saque_valor
+            
+            print(f"Foi realizado um saque no valor de R$ {saque_valor}.\n O saldo atual da conta é R$ {saldo}")
+            saque_valor *= -1
+            extrato.append([data, saque_valor, saldo])
+            num_saques += 1
+        else:
+            print("Saldo em conta insuficiente para esta operação.")
+    else:
+        print("Limite de saques excedido para o dia de hoje")
+            
+            
     print(extrato)
     
         
@@ -103,4 +131,3 @@ logo = '''
 print(logo)
 
 menu()
-
