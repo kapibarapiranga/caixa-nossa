@@ -5,15 +5,16 @@ Created on Mon Aug 26 10:44:41 2024
 
 @author: Kapibara Pirãga
 """
+from datetime import date
 
 # VARIÁVEIS E CONSTANTES
 LIMITE_SAQUE = 500
 LIMITE_NUM_SAQUES = 3
-BOAS_VINDAS = "Seja Bem-Vindo ao Terminal do Banco Nosso S.A."
+BOAS_VINDAS = "\n\n\nSeja Bem-Vindo ao Terminal do Banco Nosso S.A."
 ERRO = " operação inválida "
                          
 saldo = 0
-extrato = ""
+extrato = []
 num_saques = 0
 
 menu_msg = """
@@ -34,6 +35,8 @@ def menu():
         
         if opcao == "d":
             print("Depósito")
+            deposito_valor = float(input("Digite o valor que deseja depositar: "))
+            deposito(deposito_valor)
         
         elif opcao == "s":
             print("Sacar")
@@ -47,8 +50,16 @@ def menu():
         
         else:
             print(ERRO.upper().center(47, "="))
-        
-         
+
+
+def deposito(valor):
+    global saldo 
+    saldo += valor
+    
+    data = date.today()
+    extrato.append([data, valor, saldo])
+    print(extrato)
+    
         
         
         
