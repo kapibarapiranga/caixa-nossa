@@ -116,6 +116,9 @@ def imprime_extrato():
                 print(titulo)
                 print(f"R$ {entrada[1]:.2f}\t\t\t\tR$ {entrada[2]:.2f}")
                 ultima_entrada = dia
+    
+    print(30 * "_")
+    print(f"SALDO\t\t\t\t\tR$ {saldo:.2f}")
                     
         
     
