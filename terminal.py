@@ -7,6 +7,12 @@ Created on Mon Aug 26 10:44:41 2024
 """
 from datetime import date
 
+'''
+TESTE
+saldo = 100
+extrato = [[date(1970, 1, 1), 0.0, 0.0],[date(1970, 1, 1), 10.0, 10.0],[date(1970, 1, 1), 100.0, 110.0],[date(1970, 2, 10), -60.0, 50.0],[date(1970, 5, 1), 50.0, 100.0]]
+'''
+
 # VARIÁVEIS E CONSTANTES
 LIMITE_SAQUE = 500
 LIMITE_NUM_SAQUES = 3
@@ -14,7 +20,7 @@ BOAS_VINDAS = "\n\n\nSeja Bem-Vindo ao Terminal do Banco Nosso S.A."
 ERRO = " operação inválida "
                          
 saldo = 0
-extrato = [[date(1970, 1, 1), 0.0, 0.0]]
+extrato = []
 num_saques = 0
 
 menu_msg = """
@@ -44,6 +50,7 @@ def menu():
     
         elif opcao == "e":
             print("Extrato")
+            imprime_extrato()
         
         elif opcao == "q":
             print("Sair")
@@ -59,7 +66,6 @@ def deposito(valor):
     
     data = date.today()
     extrato.append([data, valor, saldo])
-    print(extrato)
 
 def saque():
     global saldo
@@ -85,10 +91,32 @@ def saque():
     else:
         print("Limite de saques excedido para o dia de hoje")
             
-            
-    print(extrato)
-    
+def imprime_extrato():
+    n = 0
+    titulo = "==Lançamento___________Saldo=="
+   
+    for entrada in extrato:
+        dia = entrada[0]
         
+        if n == 0:
+            print(str(dia).center(30, "_"))
+            print(titulo)
+            print(f"R$ {entrada[1]:.2f}\t\t\t\tR$ {entrada[2]:.2f}")
+            
+            ultima_entrada = dia
+            n = 1
+        else:
+            if dia == ultima_entrada:
+                print(f"R$ {entrada[1]:.2f}\t\t\t\tR$ {entrada[2]:.2f}")
+            else:
+                print(str(dia).center(30, "_"))
+                print(titulo)
+                print(f"R$ {entrada[1]:.2f}\t\t\t\tR$ {entrada[2]:.2f}")
+                ultima_entrada = dia
+                    
+        
+    
+
         
         
 
