@@ -82,7 +82,7 @@ def saque():
         if saque_valor <= saldo:
             saldo -= saque_valor
             
-            print(f"Foi realizado um saque no valor de R$ {saque_valor}.\n O saldo atual da conta é R$ {saldo}")
+            print(f"Foi realizado um saque no valor de R$ {saque_valor:.2f}.\nO saldo atual da conta é R$ {saldo:.2f}")
             saque_valor *= -1
             extrato.append([data, saque_valor, saldo])
             num_saques += 1
